@@ -3,7 +3,13 @@
 
 Aufruf: python3 make_slides.py slides.json ausgabe-ordner/
 
-slides.json:
+slides.json (Standard: ein Satz, eine Folie):
+{
+  "handle": "@deinaccount",
+  "slides": [{"statement": true, "title": "Ein Satz mit einem Fakt.", "source": "Autor et al., Jahr"}]
+}
+
+Mehrere Folien (optional):
 {
   "handle": "@deinaccount",
   "slides": [
@@ -207,7 +213,38 @@ def draw_sketch(d, name, box):
 
 # ---------- Folien ----------
 
+def render_statement(slide, handle):
+    """Ein Satz, gross und mittig, darunter Kurzquelle."""
+    img = Image.new("RGB", (W * S, H * S), BG)
+    d = ImageDraw.Draw(img)
+    pad = PAD * S
+    max_w = W * S - 2 * pad
+    size = 84
+    f_text = font("Inter-ExtraBold.otf" if (FONT_DIR / "Inter-ExtraBold.otf").exists()
+                  else "Inter-Bold.otf", size)
+    lines = wrap(d, slide["title"], f_text, max_w)
+    while len(lines) > 6 and size > 56:
+        size -= 6
+        f_text = font("Inter-Bold.otf", size)
+        lines = wrap(d, slide["title"], f_text, max_w)
+    lh = int(size * 1.14 * S)
+    f_src = font("Inter-Medium.otf", 30)
+    block = len(lines) * lh + 70 * S
+    y = (H * S - block) // 2 - 30 * S
+    d.rectangle([pad, y - 70 * S, pad + 140 * S, y - 56 * S], fill=ACCENT)
+    for line in lines:
+        d.text((pad, y), line, font=f_text, fill=INK)
+        y += lh
+    if slide.get("source"):
+        d.text((pad, y + 40 * S), slide["source"], font=f_src, fill=MUTED)
+    f_meta = font("Inter-Medium.otf", 30)
+    d.text((pad, H * S - pad - 30 * S), handle, font=f_meta, fill=MUTED)
+    return img.resize((W, H), Image.LANCZOS)
+
+
 def render(slide, idx, total, handle, is_hook):
+    if slide.get("statement"):
+        return render_statement(slide, handle)
     img = Image.new("RGB", (W * S, H * S), BG)
     d = ImageDraw.Draw(img)
     pad = PAD * S
