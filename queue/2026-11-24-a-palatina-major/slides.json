@@ -1,0 +1,35 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "slides": [
+  {
+   "title": "Wo liegt die A. palatina major?",
+   "text": "Kommt auf den Gaumen an.",
+   "sketch": "palate_top",
+   "sketch_caption": "Schematische Skizze: Verlauf der A. palatina major (orange)"
+  },
+  {
+   "title": "Nicht jeder Gaumen ist gleich",
+   "text": "Reiser et al. unterscheiden hohe, mittlere und flache Gaumengewölbe. Davon hängt ab, wo das Gefäß-Nerven-Bündel liegt.",
+   "sketch": "palate_section:mittel",
+   "sketch_caption": "Schematischer Querschnitt: Gefäß-Nerven-Bündel (orange)"
+  },
+  {
+   "title": "Abstand zum Gingivarand",
+   "sketch": "palate_sections",
+   "sketch_caption": "Schematisch, Werte laut Reiser et al. (1996)"
+  },
+  {
+   "title": "Schätzen ist ungenau",
+   "text": "In einer Kadaverstudie lagen Schätzungen der Bündel-Lage oft daneben, um bis zu 4 mm. Bei hohem Gaumen waren sich die Untersucher seltener einig."
+  },
+  {
+   "title": "Quellen",
+   "text": "Reiser GM, Bruno JF, Mahan PE, Larkin LH (1996). The subepithelial connective tissue graft palatal donor site: anatomic considerations for surgeons. Int J Periodontics Restorative Dent 16(2):130-137. PMID 9084301\n\nFu JH, Hasso DG, Yeh CY et al. (2011). The accuracy of identifying the greater palatine neurovascular bundle: a cadaver study. J Periodontol 82:1000-1006. PMID 21284546\n\nGefunden in: Clinical Anatomy for Oral Implantology, Louie Al-Faraje (2021)",
+   "small": true
+  },
+  {
+   "title": "Kein Ersatz für ärztlichen Rat.",
+   "text": "Speichern für deine nächste Entnahme am Gaumen."
+  }
+ ]
+}
