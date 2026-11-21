@@ -28,14 +28,14 @@ from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1350
 S = 2  # Supersampling fuer glatte Kanten
-BG = (14, 27, 56)
+BG = (10, 10, 10)
 INK = (255, 255, 255)
-ACCENT = (255, 94, 58)
-MUTED = (160, 176, 205)
-BONE = (236, 224, 198)
-BONE_EDGE = (196, 180, 150)
-MUCOSA = (240, 150, 160)
-TOOTH = (250, 250, 245)
+ACCENT = (255, 214, 0)
+MUTED = (165, 165, 165)
+BONE = (58, 58, 58)
+BONE_EDGE = (110, 110, 110)
+MUCOSA = (150, 150, 150)
+TOOTH = (245, 245, 245)
 PAD = 96
 
 FONT_DIR = Path("/usr/share/fonts/opentype/inter")
@@ -108,7 +108,7 @@ def draw_section(d, x, y, w, h, kind, label=True, big=False):
         bx = xc + u * half
         by = vault_y(u, gum, depth) + 6 * S
         r = (14 if big else 11) * S
-        d.ellipse([bx - r, by - r, bx + r, by + r], fill=ACCENT, outline=INK, width=2 * S)
+        d.ellipse([bx - r, by - r, bx + r, by + r], fill=ACCENT, outline=BG, width=3 * S)
 
     # Masslinie links: Gingivarand -> Buendel
     bx = xc - 0.62 * half
@@ -120,7 +120,7 @@ def draw_section(d, x, y, w, h, kind, label=True, big=False):
     if label:
         f = font("Inter-Bold.otf", 30 if big else 26)
         txt = VAULT_MM[kind]
-        d.text((mx + 18 * S, (gum + by) / 2 - 16 * S), txt, font=f, fill=BG)
+        d.text((mx + 18 * S, (gum + by) / 2 - 16 * S), txt, font=f, fill=ACCENT)
 
 
 def arch_points(cx, top, a, b, leg, n=120):
@@ -157,7 +157,7 @@ def draw_palate_top(d, x, y, w, h):
     # Raphe
     yy = top + h * 0.14
     while yy < y + h * 0.95:
-        d.line([(cx, yy), (cx, yy + 10 * S)], fill=(200, 110, 125), width=3 * S)
+        d.line([(cx, yy), (cx, yy + 10 * S)], fill=(90, 90, 90), width=3 * S)
         yy += 24 * S
     # Zaehne: Schneidezaehne klein, Molaren gross
     n = 16
