@@ -45,6 +45,7 @@ MUCOSA = (95, 95, 95)
 TOOTH = (250, 250, 250)
 PAD = 96
 
+SWIPE = "Swipe →"
 FONT_DIR = Path("/usr/share/fonts/opentype/inter")
 
 
@@ -244,7 +245,7 @@ def render_statement(slide, handle, idx=1, total=1):
         d.text((W * S - pad - d.textlength(counter, font=f_meta), H * S - pad - 30 * S),
                counter, font=f_meta, fill=MUTED)
         if idx == 1:
-            hint = "Wischen →"
+            hint = SWIPE
             d.text((W * S - pad - d.textlength(hint, font=f_meta), pad - 8 * S), hint,
                    font=f_meta, fill=INK)
     return img.resize((W, H), Image.LANCZOS)
@@ -302,14 +303,16 @@ def render(slide, idx, total, handle, is_hook):
     d.text((W * S - pad - d.textlength(counter, font=f_meta), H * S - pad - 30 * S),
            counter, font=f_meta, fill=MUTED)
     if is_hook and total > 1:
-        hint = "Wischen →"
+        hint = SWIPE
         d.text((W * S - pad - d.textlength(hint, font=f_meta), pad - 8 * S), hint,
                font=f_meta, fill=ACCENT)
     return img.resize((W, H), Image.LANCZOS)
 
 
 def main():
+    global SWIPE
     spec = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    SWIPE = spec.get("swipe_hint", SWIPE)
     out = Path(sys.argv[2])
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob("*.jpg"):
