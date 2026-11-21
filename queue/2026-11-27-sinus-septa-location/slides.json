@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "Sinus septa can sit anywhere: 24% anterior, 41% middle and 35% posterior.",
+   "source": "Velasquez-Plata et al., 2002"
+  },
+  {
+   "statement": true,
+   "title": "Septa were found in 24% of sinuses and in about 1 in 3 patients (32.7%).",
+   "source": "Velasquez-Plata et al., 2002"
+  }
+ ]
+}

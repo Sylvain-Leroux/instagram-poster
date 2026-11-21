@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "About 1 in 4 maxillary sinuses contains at least one bony septum (26.5%).",
+   "source": "Kim et al., 2006"
+  },
+  {
+   "statement": true,
+   "title": "In atrophic edentulous segments the rate was 31.8%, in non-atrophic dentate segments 22.6%.",
+   "source": "Kim et al., 2006"
+  }
+ ]
+}

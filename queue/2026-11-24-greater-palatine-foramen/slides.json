@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "The greater palatine foramen was most often found between the second and third molars (66.6%).",
+   "source": "Fu et al., 2011"
+  },
+  {
+   "statement": true,
+   "title": "Examiners also tended to place the neurovascular bundle closer to the teeth than it really was, by up to 4 mm.",
+   "source": "Fu et al., 2011"
+  }
+ ]
+}

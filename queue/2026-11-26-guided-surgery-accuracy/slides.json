@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "Guided implant surgery is not error-free: deviations at the implant apex reached up to 7.1 mm.",
+   "source": "Tahmaseb et al., 2014"
+  },
+  {
+   "statement": true,
+   "title": "The mean error was 1.39 mm at the apex and 1.12 mm at the entry point (meta-analysis of 24 studies).",
+   "source": "Tahmaseb et al., 2014"
+  }
+ ]
+}
