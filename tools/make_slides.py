@@ -28,14 +28,15 @@ from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1350
 S = 2  # Supersampling fuer glatte Kanten
-BG = (10, 10, 10)
-INK = (255, 255, 255)
-ACCENT = (255, 214, 0)
-MUTED = (165, 165, 165)
-BONE = (58, 58, 58)
-BONE_EDGE = (110, 110, 110)
-MUCOSA = (150, 150, 150)
-TOOTH = (245, 245, 245)
+BG = (255, 214, 0)        # Gelb
+INK = (12, 12, 12)        # Schwarz
+ACCENT = (12, 12, 12)     # Balken, Zahlen
+MUTED = (70, 60, 20)
+HIL = (255, 214, 0)       # Hervorhebung in Skizzen (gelb auf dunkel)
+BONE = (28, 28, 28)
+BONE_EDGE = (12, 12, 12)
+MUCOSA = (95, 95, 95)
+TOOTH = (250, 250, 250)
 PAD = 96
 
 FONT_DIR = Path("/usr/share/fonts/opentype/inter")
@@ -108,19 +109,19 @@ def draw_section(d, x, y, w, h, kind, label=True, big=False):
         bx = xc + u * half
         by = vault_y(u, gum, depth) + 6 * S
         r = (14 if big else 11) * S
-        d.ellipse([bx - r, by - r, bx + r, by + r], fill=ACCENT, outline=BG, width=3 * S)
+        d.ellipse([bx - r, by - r, bx + r, by + r], fill=HIL, outline=BONE, width=3 * S)
 
     # Masslinie links: Gingivarand -> Buendel
     bx = xc - 0.62 * half
     by = vault_y(-0.62, gum, depth) + 6 * S
     mx = xl - w * (0.20 if label else 0.06)
-    d.line([(mx, gum), (mx, by)], fill=ACCENT, width=lw)
+    d.line([(mx, gum), (mx, by)], fill=HIL, width=lw)
     for yy in (gum, by):
-        d.line([(mx - 10 * S, yy), (mx + 10 * S, yy)], fill=ACCENT, width=lw)
+        d.line([(mx - 10 * S, yy), (mx + 10 * S, yy)], fill=HIL, width=lw)
     if label:
         f = font("Inter-Bold.otf", 30 if big else 26)
         txt = VAULT_MM[kind]
-        d.text((mx + 18 * S, (gum + by) / 2 - 16 * S), txt, font=f, fill=ACCENT)
+        d.text((mx + 18 * S, (gum + by) / 2 - 16 * S), txt, font=f, fill=HIL)
 
 
 def arch_points(cx, top, a, b, leg, n=120):
@@ -157,7 +158,7 @@ def draw_palate_top(d, x, y, w, h):
     # Raphe
     yy = top + h * 0.14
     while yy < y + h * 0.95:
-        d.line([(cx, yy), (cx, yy + 10 * S)], fill=(90, 90, 90), width=3 * S)
+        d.line([(cx, yy), (cx, yy + 10 * S)], fill=(150, 150, 150), width=3 * S)
         yy += 24 * S
     # Zaehne: Schneidezaehne klein, Molaren gross
     n = 16
@@ -173,12 +174,12 @@ def draw_palate_top(d, x, y, w, h):
         art = arch_points(cx, top + h * 0.10, w * 0.27, h * 0.34, h * 0.40)
         half_pts = art[: len(art) // 2] if side < 0 else art[len(art) // 2:][::-1]
         half_pts = [p for p in half_pts if p[1] > inc[1] + h * 0.04] + [inc]
-        d.line(half_pts, fill=ACCENT, width=7 * S, joint="curve")
+        d.line(half_pts, fill=HIL, width=7 * S, joint="curve")
         fx, fy = half_pts[0]
         r = 15 * S
-        d.ellipse([fx - r, fy - r, fx + r, fy + r], fill=BG, outline=ACCENT, width=5 * S)
+        d.ellipse([fx - r, fy - r, fx + r, fy + r], fill=BONE, outline=HIL, width=5 * S)
     r = 11 * S
-    d.ellipse([inc[0] - r, inc[1] - r, inc[0] + r, inc[1] + r], fill=BG, outline=ACCENT, width=4 * S)
+    d.ellipse([inc[0] - r, inc[1] - r, inc[0] + r, inc[1] + r], fill=BONE, outline=HIL, width=4 * S)
 
 
 def draw_sketch(d, name, box):
