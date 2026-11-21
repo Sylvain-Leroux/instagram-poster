@@ -19,8 +19,13 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-API_VERSION = os.environ.get("IG_API_VERSION", "v25.0")
-BASE = f"https://graph.instagram.com/{API_VERSION}"
+API_VERSION = os.environ.get("IG_API_VERSION", "v27.0")
+# EAA...-Token (Unified Login / Systemnutzer) -> graph.facebook.com
+# IGAA...-Token (Instagram-Login) -> graph.instagram.com
+API_HOST = os.environ.get("IG_API_HOST") or (
+    "graph.instagram.com" if os.environ.get("IG_ACCESS_TOKEN", "").startswith("IG")
+    else "graph.facebook.com")
+BASE = f"https://{API_HOST}/{API_VERSION}"
 ROOT = Path(__file__).resolve().parent.parent
 QUEUE, POSTED, FAILED = ROOT / "queue", ROOT / "posted", ROOT / "failed"
 MAX_PER_RUN = 3
