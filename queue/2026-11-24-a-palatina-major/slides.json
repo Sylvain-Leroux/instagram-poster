@@ -1,2 +1,15 @@
-{"handle":"@oralsurgery.knowledge","slides":[
-{"statement":true,"title":"Bei flachem Gaumen liegt die A. palatina major nur etwa 7 mm vom Gingivarand entfernt.","source":"Reiser et al., 1996"}]}
+{
+ "handle": "@oralsurgery.knowledge",
+ "slides": [
+  {
+   "statement": true,
+   "title": "Bei flachem Gaumen liegt die A. palatina major nur etwa 7 mm vom Gingivarand entfernt.",
+   "source": "Reiser et al., 1996"
+  },
+  {
+   "statement": true,
+   "title": "Bei mittlerem Gaumen sind es etwa 12 mm, bei hohem etwa 17 mm. Wichtig bei jeder Bindegewebsentnahme am Gaumen.",
+   "source": "Reiser et al., 1996"
+  }
+ ]
+}

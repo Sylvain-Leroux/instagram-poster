@@ -58,7 +58,7 @@ def font(name, size):
 def wrap(draw, text, fnt, max_w):
     lines = []
     for para in text.split("\n"):
-        words, line = para.split(), ""
+        words, line = [w for w in para.split(" ") if w], ""
         for w in words:
             test = f"{line} {w}".strip()
             if draw.textlength(test, font=fnt) <= max_w:
@@ -213,7 +213,7 @@ def draw_sketch(d, name, box):
 
 # ---------- Folien ----------
 
-def render_statement(slide, handle):
+def render_statement(slide, handle, idx=1, total=1):
     """Ein Satz, gross und mittig, darunter Kurzquelle."""
     img = Image.new("RGB", (W * S, H * S), BG)
     d = ImageDraw.Draw(img)
@@ -239,12 +239,20 @@ def render_statement(slide, handle):
         d.text((pad, y + 40 * S), slide["source"], font=f_src, fill=MUTED)
     f_meta = font("Inter-Medium.otf", 30)
     d.text((pad, H * S - pad - 30 * S), handle, font=f_meta, fill=MUTED)
+    if total > 1:
+        counter = f"{idx}/{total}"
+        d.text((W * S - pad - d.textlength(counter, font=f_meta), H * S - pad - 30 * S),
+               counter, font=f_meta, fill=MUTED)
+        if idx == 1:
+            hint = "Wischen →"
+            d.text((W * S - pad - d.textlength(hint, font=f_meta), pad - 8 * S), hint,
+                   font=f_meta, fill=INK)
     return img.resize((W, H), Image.LANCZOS)
 
 
 def render(slide, idx, total, handle, is_hook):
     if slide.get("statement"):
-        return render_statement(slide, handle)
+        return render_statement(slide, handle, idx, total)
     img = Image.new("RGB", (W * S, H * S), BG)
     d = ImageDraw.Draw(img)
     pad = PAD * S
