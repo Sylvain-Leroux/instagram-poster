@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "After inferior alveolar nerve transposition for implants, 52% of sites showed altered sensation.",
+   "source": "Kan et al., 1997"
+  },
+  {
+   "statement": true,
+   "title": "When the mental foramen was detached, the rate was 78%; with the foramen left intact, 33%.",
+   "source": "Kan et al., 1997"
+  }
+ ]
+}
