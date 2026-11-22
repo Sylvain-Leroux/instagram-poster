@@ -1,0 +1,4 @@
+{
+  "error": "POST 17841423768924043/media -> HTTP 400: {\"error\":{\"message\":\"API access blocked.\",\"code\":200,\"type\":\"OAuthException\",\"error_subcode\":5258005,\"fbtrace_id\":\"AmryJvboIibnZeG0PJlVU77\"}}",
+  "at": "2026-11-22T19:15:42.558644+00:00"
+}
