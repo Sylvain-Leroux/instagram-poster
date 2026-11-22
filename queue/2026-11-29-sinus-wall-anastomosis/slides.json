@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "Arteries in the lateral sinus wall formed an anastomosis inside the bone in all 18 specimens.",
+   "source": "Solar et al., 1999"
+  },
+  {
+   "statement": true,
+   "title": "In 44% there was a second anastomosis outside the bone, on the vestibular side.",
+   "source": "Solar et al., 1999"
+  }
+ ]
+}

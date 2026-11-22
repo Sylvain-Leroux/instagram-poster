@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "In 1 of 10 cases, the lingual nerve ran above the lingual crest in the third molar region.",
+   "source": "Miloro et al., 1997"
+  },
+  {
+   "statement": true,
+   "title": "In 25% it was in direct contact with the lingual plate. Mean vertical distance to the crest: 2.75 mm.",
+   "source": "Miloro et al., 1997"
+  }
+ ]
+}

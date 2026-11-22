@@ -1,0 +1,16 @@
+{
+ "handle": "@oralsurgery.knowledge",
+ "swipe_hint": "Swipe →",
+ "slides": [
+  {
+   "statement": true,
+   "title": "After sinus augmentation with autogenous bone alone, graft volume dropped by 42% within 6 months.",
+   "source": "Cosso et al., 2014"
+  },
+  {
+   "statement": true,
+   "title": "Mixed with hydroxyapatite (80:20), the loss was 26% in the same patients.",
+   "source": "Cosso et al., 2014"
+  }
+ ]
+}
